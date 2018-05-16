@@ -10,7 +10,7 @@
                 
             }
         },
-		"title": "Javascript/Node.js based brother_hl-4150 adapter",
+		"title": "brother_hl-4150 adapter",
         "titleLang": {
             "en": "brother_hl-4150 adapter",
             "de": "brother_hl-4150 adapter"
@@ -32,7 +32,7 @@
         "icon": "brother_hl-4150.png",
         "materialize": true,
         "enabled": true,
-        "extIcon": ""https://github.com/MueThoS76/iobroker.brother_hl-4150/master/admin/brother_hl-4150.png",
+        "extIcon": "https://raw.githubusercontent.com/MueThoS76/iobroker.brother_hl-4150/master/admin/brother_hl-4150.png",
         "keywords": ["brother_hl-4150", "vis", "GUI", "graphical", "scada"],
         "readme": "https://github.com/MueThoS76/iobroker.brother_hl-4150/blob/master/README.md",
         "loglevel": "info",
