@@ -8,7 +8,11 @@ var csv = require('csv-stream');
 
 // All of these arguments are optional.
 var options = {
+    delimiter : '\t', // default is ,
     endLine : '\n', // default is \n,
+    columns : ['columnName1', 'columnName2'], // by default read the first line and use values found as columns
+    columnOffset : 2, // default is 0
+    escapeChar : '"', // default is an empty string
     enclosedChar : '"' // default is an empty string
 }
 
@@ -35,57 +39,42 @@ function main() {
    if (url_type == "https") {
            adapter.log.info('https request');
    
-           request({
-                 url: printer_url,
-                  rejectUnauthorized: false
-                 }).pipe(csvStream)
-           .on('error',function(err){
-                 adapter.log.info(err);
-           })
-           .on('header', function(columns) {
-                 adapter.log.info(columns);
-           })
-           .on('data',function(data){
-                 // outputs an object containing a set of key/value pair representing a line found in the csv file.
-                 adapter.log.info(data);
-           })
-           .on('column',function(key,value){
-                 // outputs the column name associated with the value found
-                 adapter.log.info('#' + key + ' = ' + value);
-                 
-                 adapter.setObjectNotExists(key, {
-                     type: 'state',
-                     common: {
-                         name: key,
-                         type: 'number',
-                         role: 'value'
-                     },
-                     native: {}
-                 });
-                 
-                 adapter.setState(key, {val: String(value), ack: true});
-                 
-                 
-           })
+           request(
+               {
+                   url: printer_url,
+                   rejectUnauthorized: false,
+                   pipe: csvStream
+               },
    
-           
+   
+               function(error, response, content) {
+   
+                   adapter.log.debug(content);
   /* 
                   if (!error && response.statusCode == 200) {
    
                        for (var key in content.sensordatavalues) {
-                           
+                           var obj = content.sensordatavalues[key];
    
-                          
+                           adapter.setObjectNotExists(obj.value_type, {
+                               type: 'state',
+                               common: {
+                                   name: obj.value_type,
+                                   type: 'number',
+                                   role: 'value'
+                               },
+                               native: {}
+                           });
+   
+                           adapter.setState(obj.value_type, {val: obj.value, ack: true});
                        }
    
                    } else {
                        adapter.log.error(error);
                    }
-   
+   */
                }
            );
-   */
-   
        } else if (url_type == "http") {
            adapter.log.info('http request');
    

@@ -28,7 +28,8 @@
             "ru": "docs/ru/admin.md"
         },
         "platform": "Javascript/Node.js",
-        "mode": "daemon",
+        "mode": "schedule",
+		"schedule": "*/1 * * * *",
         "icon": "brother_hl-4150.png",
         "materialize": true,
         "enabled": true,
