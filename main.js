@@ -51,13 +51,41 @@ function main() {
 //           })
            .on('column',function(key,value){
                  // outputs the column name associated with the value found
-                 adapter.log.info('#' + key + ' = ' + value);
+                 
+                 key = key.replace(/\.|\ |\\/gi, "_"); 
+                 
+                 var data_type
+                 
+                 
+                 if (value == parseInt(value)) 
+                 {
+                 data_type = 'number';
+                 }
+                 else if (value == parseFloat(value)) 
+                 {
+                 data_type = 'number';
+                 }
+                 else
+                 {
+                 data_type = 'string';
+                 }
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                                  
+                 adapter.log.info('#' + key + ' = ' + value + '    ---   type =' + data_type);
+                 
+                 
                  
                  adapter.setObjectNotExists(key, {
                      type: 'state',
                      common: {
                          name: key,
-                         type: 'text',
+                         type: data_type,
                          role: 'value'
                      },
                      native: {}
