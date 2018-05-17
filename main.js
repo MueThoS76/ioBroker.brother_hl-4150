@@ -57,7 +57,7 @@ function main() {
                      type: 'state',
                      common: {
                          name: key,
-                         type: 'number',
+                         type: 'text',
                          role: 'value'
                      },
                      native: {}
