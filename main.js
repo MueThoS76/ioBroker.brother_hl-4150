@@ -42,13 +42,13 @@ function main() {
            .on('error',function(err){
                  adapter.log.info(err);
            })
-           .on('header', function(columns) {
-                 adapter.log.info(columns);
-           })
-           .on('data',function(data){
+//           .on('header', function(columns) {
+//                 adapter.log.info(columns);
+//           })
+//           .on('data',function(data){
                  // outputs an object containing a set of key/value pair representing a line found in the csv file.
-                 adapter.log.info(data);
-           })
+//                 adapter.log.info(data);
+//           })
            .on('column',function(key,value){
                  // outputs the column name associated with the value found
                  adapter.log.info('#' + key + ' = ' + value);

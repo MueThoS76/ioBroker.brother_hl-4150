@@ -29,7 +29,7 @@
         },
         "platform": "Javascript/Node.js",
         "mode": "schedule",
-		"schedule": "*/1 * * * *",
+		"schedule": "* */8 * * *",
         "icon": "brother_hl-4150.png",
         "materialize": true,
         "enabled": true,
@@ -37,8 +37,7 @@
         "keywords": ["brother_hl-4150", "vis", "GUI", "graphical", "scada"],
         "readme": "https://github.com/MueThoS76/iobroker.brother_hl-4150/blob/master/README.md",
         "loglevel": "info",
-        "type": "general",
-        "restartAdapters": ["vis"]
+        "type": "infrastructure"
     },
     "native": {
         "test1": true,
