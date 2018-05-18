@@ -63,7 +63,7 @@ function main() {
                         native: {}
                   });
 
-                  adapter.setState(key, {val: String(value), ack: true});
+                  adapter.setState(key, {val: value, ack: true});
 
 
             })
@@ -105,7 +105,7 @@ function main() {
                         native: {}
                   });
       
-                  adapter.setState(key, {val: String(value), ack: true});
+                  adapter.setState(key, {val: value, ack: true});
       
             })
       
