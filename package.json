@@ -1,7 +1,7 @@
 {
   "name": "ioBroker.brother_hl-4150",
   "version": "0.0.1",
-  "description": "ioBroker brother_hl-4150 Adapter",
+  "description": "ioBroker brother_hl-4150",
   "author": {
     "name": "Thorsten Muelhoefer",
     "email": "muethos76@gmail.com"
